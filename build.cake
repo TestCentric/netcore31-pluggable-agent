@@ -3,7 +3,7 @@
 #tool nuget:?package=GitReleaseManager&version=0.12.1
 
 // Load the recipe
-#load nuget:?package=TestCentric.Cake.Recipe&version=1.0.0-dev00040
+#load nuget:?package=TestCentric.Cake.Recipe&version=1.0.0-dev00043
 // Comment out above line and uncomment below for local tests of recipe changes
 //#load ../TestCentric.Cake.Recipe/recipe/*.cake
 
@@ -17,7 +17,7 @@ BuildSettings.Initialize
 	title: "NetCore31PluggableAgent",
 	solutionFile: "netcore31-pluggable-agent.sln",
 	unitTests: "netcore31-agent-launcher.tests.exe",
-	guiVersion: "2.0.0-dev00226",
+	guiVersion: "2.0.0-dev00274",
 	githubOwner: "TestCentric",
 	githubRepository: "netcore31-pluggable-agent"
 );
@@ -50,7 +50,7 @@ var nugetPackage = new NuGetPackage(
 			"netcore31-pluggable-agent.dll", "netcore31-pluggable-agent.dll.config",
 			"nunit.engine.api.dll", "testcentric.engine.core.dll",
 			"testcentric.engine.metadata.dll", "testcentric.extensibility.dll") },
-	testRunner: new GuiRunner("TestCentric.GuiRunner", "2.0.0-dev00226"),
+	testRunner: new GuiRunner("TestCentric.GuiRunner", "2.0.0-dev00274"),
 	tests: packageTests );
 
 var chocolateyPackage = new ChocolateyPackage(
@@ -64,7 +64,7 @@ var chocolateyPackage = new ChocolateyPackage(
 				"netcore31-pluggable-agent.dll", "netcore31-pluggable-agent.dll.config",
 				"nunit.engine.api.dll", "testcentric.engine.core.dll",
 				"testcentric.engine.metadata.dll", "testcentric.extensibility.dll") },
-		testRunner: new GuiRunner("testcentric-gui", "2.0.0-dev00226"),
+		testRunner: new GuiRunner("testcentric-gui", "2.0.0-dev00274"),
 		tests: packageTests);
 
 BuildSettings.Packages.AddRange(new PackageDefinition[] { nugetPackage, chocolateyPackage });
