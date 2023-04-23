@@ -32,7 +32,8 @@ namespace TestCentric.Engine.Services
         private static readonly string[] RUNTIMES = new string[]
         {
             "net-2.0", "net-3.0", "net-3.5", "net-4.0", "net-4.5",
-            "netcore-1.1", "netcore-2.1", "netcore-3.1", "netcore-5.0"
+            "netcore-1.1", "netcore-2.1", "netcore-3.1", "netcore-5.0",
+            "netcore-6-0", "netcore-7.0", "netcore-8.0"
         };
 
         private static readonly string[] SUPPORTED = new string[] { "netcore-1.1", "netcore-2.1", "netcore-3.1" };
@@ -93,7 +94,6 @@ namespace TestCentric.Engine.Services
         }
 
         [TestCaseSource(nameof(RUNTIMES))]
-        [Ignore("X86 is not yet supported")]
         public void CreateX86Process(string runtime)
         {
             _package.Settings[TARGET_RUNTIME_FRAMEWORK] = runtime;
