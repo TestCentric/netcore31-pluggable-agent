@@ -25,8 +25,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "nuget", "nuget", "{68E72A39
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "choco", "choco", "{7679FD0F-A828-4151-805E-6C662EFBFFE5}"
 	ProjectSection(SolutionItems) = preProject
-		choco\VERIFICATION.txt = choco\VERIFICATION.txt
 		choco\netcore31-pluggable-agent.nuspec = choco\netcore31-pluggable-agent.nuspec
+		choco\VERIFICATION.txt = choco\VERIFICATION.txt
 	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "netcore31-agent-launcher", "src\launcher\netcore31-agent-launcher.csproj", "{98BDBD08-D9E8-48DD-ADEC-79B8C5512B73}"
@@ -34,6 +34,8 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "netcore31-pluggable-agent", "src\agent-exe\netcore31-pluggable-agent.csproj", "{D46BEB3E-FC40-412A-8619-CC6E80A1BA21}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "netcore31-agent-launcher.tests", "src\tests\netcore31-agent-launcher.tests.csproj", "{7080F8EB-9B5F-4118-A3DE-10E7C89C792D}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "aspnetcore-test", "src\aspnetcore-test\aspnetcore-test.csproj", "{54CB6BCE-28A6-49EE-8722-C07BE33C4A4C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -93,6 +95,18 @@ Global
 		{7080F8EB-9B5F-4118-A3DE-10E7C89C792D}.Release|x64.Build.0 = Release|Any CPU
 		{7080F8EB-9B5F-4118-A3DE-10E7C89C792D}.Release|x86.ActiveCfg = Release|Any CPU
 		{7080F8EB-9B5F-4118-A3DE-10E7C89C792D}.Release|x86.Build.0 = Release|Any CPU
+		{54CB6BCE-28A6-49EE-8722-C07BE33C4A4C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{54CB6BCE-28A6-49EE-8722-C07BE33C4A4C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{54CB6BCE-28A6-49EE-8722-C07BE33C4A4C}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{54CB6BCE-28A6-49EE-8722-C07BE33C4A4C}.Debug|x64.Build.0 = Debug|Any CPU
+		{54CB6BCE-28A6-49EE-8722-C07BE33C4A4C}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{54CB6BCE-28A6-49EE-8722-C07BE33C4A4C}.Debug|x86.Build.0 = Debug|Any CPU
+		{54CB6BCE-28A6-49EE-8722-C07BE33C4A4C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{54CB6BCE-28A6-49EE-8722-C07BE33C4A4C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{54CB6BCE-28A6-49EE-8722-C07BE33C4A4C}.Release|x64.ActiveCfg = Release|Any CPU
+		{54CB6BCE-28A6-49EE-8722-C07BE33C4A4C}.Release|x64.Build.0 = Release|Any CPU
+		{54CB6BCE-28A6-49EE-8722-C07BE33C4A4C}.Release|x86.ActiveCfg = Release|Any CPU
+		{54CB6BCE-28A6-49EE-8722-C07BE33C4A4C}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
