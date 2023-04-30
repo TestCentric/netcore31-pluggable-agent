@@ -3,7 +3,7 @@
 #tool nuget:?package=GitReleaseManager&version=0.12.1
 
 // Load the recipe
-#load nuget:?package=TestCentric.Cake.Recipe&version=1.0.0-dev00043
+#load nuget:?package=TestCentric.Cake.Recipe&version=1.0.0-dev00053
 // Comment out above line and uncomment below for local tests of recipe changes
 //#load ../TestCentric.Cake.Recipe/recipe/*.cake
 
@@ -45,16 +45,16 @@ var packageTests = new PackageTest[] {
 	// Tests of single assemblies targeting each runtime we support
 	new PackageTest(
 		1, "NetCore11PackageTest", "Run mock-assembly.dll targeting .NET Core 1.1",
-		"tests/netcoreapp1.1/mock-assembly.dll --run --unattended", MockAssemblyResult),
+		"tests/netcoreapp1.1/mock-assembly.dll", MockAssemblyResult),
 	new PackageTest(
 		1, "NetCore21PackageTest", "Run mock-assembly.dll targeting .NET Core 2.1",
-		"tests/netcoreapp2.1/mock-assembly.dll --run --unattended", MockAssemblyResult),
+		"tests/netcoreapp2.1/mock-assembly.dll", MockAssemblyResult),
 	new PackageTest(
 		1, "NetCore31PackageTest", "Run mock-assembly.dll targeting .NET Core 3.1",
-		"tests/netcoreapp3.1/mock-assembly.dll --run --unattended", MockAssemblyResult),
+		"tests/netcoreapp3.1/mock-assembly.dll", MockAssemblyResult),
 	// AspNetCore Test
 	new PackageTest(1, "AspNetCore31Test", "Run test using AspNetCore under .NET Core 3.1",
-		"tests/netcoreapp3.1/aspnetcore-test.dll --run --unattended",
+		"tests/netcoreapp3.1/aspnetcore-test.dll",
     new ExpectedResult("Passed")
     {
         Assemblies = new [] { new ExpectedAssemblyResult("aspnetcore-test.dll", "NetCore31AgentLauncher") }
@@ -96,8 +96,12 @@ BuildSettings.Packages.AddRange(new PackageDefinition[] { nugetPackage, chocolat
 //////////////////////////////////////////////////////////////////////
 
 Task("Appveyor")
-	.IsDependentOn("BuildTestAndPackage")
-	.IsDependentOn("Publish");
+	.IsDependentOn("Build")
+	.IsDependentOn("Test")
+	.IsDependentOn("Package")
+	.IsDependentOn("Publish")
+	.IsDependentOn("CreateDraftRelease")
+	.IsDependentOn("CreateProductionRelease");
 
 Task("BuildTestAndPackage")
 	.IsDependentOn("Build")
