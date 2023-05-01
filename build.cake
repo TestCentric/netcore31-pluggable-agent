@@ -3,7 +3,7 @@
 #tool nuget:?package=GitReleaseManager&version=0.12.1
 
 // Load the recipe
-#load nuget:?package=TestCentric.Cake.Recipe&version=1.0.0-dev00053
+#load nuget:?package=TestCentric.Cake.Recipe&version=1.0.0-dev00054
 // Comment out above line and uncomment below for local tests of recipe changes
 //#load ../TestCentric.Cake.Recipe/recipe/*.cake
 
@@ -21,11 +21,6 @@ BuildSettings.Initialize
 	githubOwner: "TestCentric",
 	githubRepository: "netcore31-pluggable-agent"
 );
-
-Information($"NetCore31PluggableAgent {BuildSettings.Configuration} version {BuildSettings.PackageVersion}");
-
-if (BuildSystem.IsRunningOnAppVeyor)
-	AppVeyor.UpdateBuildVersion(BuildSettings.PackageVersion + "-" + AppVeyor.Environment.Build.Number);
 
 ExpectedResult MockAssemblyResult => new ExpectedResult("Failed")
 {
