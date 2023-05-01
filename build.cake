@@ -22,11 +22,6 @@ BuildSettings.Initialize
 	githubRepository: "netcore31-pluggable-agent"
 );
 
-Information($"NetCore31PluggableAgent {BuildSettings.Configuration} version {BuildSettings.PackageVersion}");
-
-if (BuildSystem.IsRunningOnAppVeyor)
-	AppVeyor.UpdateBuildVersion(BuildSettings.PackageVersion + "-" + AppVeyor.Environment.Build.Number);
-
 ExpectedResult MockAssemblyResult => new ExpectedResult("Failed")
 {
 	Total = 36,
