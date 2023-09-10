@@ -19,20 +19,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SolutionItems", "SolutionIt
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "mock-assembly", "src\mock-assembly\mock-assembly.csproj", "{3E97A2DE-38A5-4894-AF31-7C32F49E6759}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "nuget", "nuget", "{68E72A39-0B0F-47DC-93F3-19E55A9C721C}"
-	ProjectSection(SolutionItems) = preProject
-		nuget\NetCore31PluggableAgent.nuspec = nuget\NetCore31PluggableAgent.nuspec
-	EndProjectSection
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "choco", "choco", "{7679FD0F-A828-4151-805E-6C662EFBFFE5}"
-	ProjectSection(SolutionItems) = preProject
-		choco\netcore31-pluggable-agent.nuspec = choco\netcore31-pluggable-agent.nuspec
-		choco\VERIFICATION.txt = choco\VERIFICATION.txt
-	EndProjectSection
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "netcore31-agent-launcher", "src\launcher\netcore31-agent-launcher.csproj", "{98BDBD08-D9E8-48DD-ADEC-79B8C5512B73}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "netcore31-pluggable-agent", "src\agent-exe\netcore31-pluggable-agent.csproj", "{D46BEB3E-FC40-412A-8619-CC6E80A1BA21}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "netcore31-agent", "src\agent-exe\netcore31-agent.csproj", "{D46BEB3E-FC40-412A-8619-CC6E80A1BA21}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "netcore31-agent-launcher.tests", "src\tests\netcore31-agent-launcher.tests.csproj", "{7080F8EB-9B5F-4118-A3DE-10E7C89C792D}"
 EndProject
@@ -111,10 +100,6 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
-	EndGlobalSection
-	GlobalSection(NestedProjects) = preSolution
-		{68E72A39-0B0F-47DC-93F3-19E55A9C721C} = {49BC1DFB-828F-49F4-B2B4-752AB470481D}
-		{7679FD0F-A828-4151-805E-6C662EFBFFE5} = {49BC1DFB-828F-49F4-B2B4-752AB470481D}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {CAB7BD1E-1034-47CD-AA8E-FD4AC034193B}
