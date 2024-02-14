@@ -1,5 +1,5 @@
 // Load the recipe
-#load nuget:?package=TestCentric.Cake.Recipe&version=1.1.0-dev00065
+#load nuget:?package=TestCentric.Cake.Recipe&version=1.1.0-dev00082
 // Comment out above line and uncomment below for local tests of recipe changes
 //#load ../TestCentric.Cake.Recipe/recipe/*.cake
 
@@ -51,6 +51,15 @@ PackageTests.Add(new PackageTest(
 	1, $"AspNetCore31Test", $"Run test using AspNetCore targeting .NET Core 3.1",
 	$"tests/netcoreapp3.1/aspnetcore-test.dll", AspNetCoreResult));
 
+static readonly FilePath[] AGENT_FILES = new FilePath[] {
+		"agent/netcore31-agent.dll", "agent/netcore31-agent.pdb", "agent/netcore31-agent.dll.config",
+		"agent/netcore31-agent.deps.json", $"agent/netcore31-agent.runtimeconfig.json",
+		"agent/TestCentric.Agent.Core.dll",
+		"agent/TestCentric.Engine.Api.dll", "agent/TestCentric.Extensibility.Api.dll",
+		"agent/TestCentric.Extensibility.dll", "agent/TestCentric.Metadata.dll",
+		"agent/TestCentric.InternalTrace.dll",
+		"agent/Microsoft.Extensions.DependencyModel.dll"};
+
 BuildSettings.Packages.Add(new NuGetPackage(
 	"TestCentric.Extension.NetCore31PluggableAgent",
 	title: ".NET Core 3.1 Pluggable Agent",
@@ -62,14 +71,7 @@ BuildSettings.Packages.Add(new NuGetPackage(
 			new DirectoryContent("tools").WithFiles(
 				"netcore31-agent-launcher.dll", "netcore31-agent-launcher.pdb",
 				"testcentric.extensibility.api.dll", "testcentric.engine.api.dll" ),
-			new DirectoryContent("tools/agent").WithFiles(
-				"agent/netcore31-agent.dll", "agent/netcore31-agent.pdb", "agent/netcore31-agent.dll.config",
-				"agent/netcore31-agent.deps.json", $"agent/netcore31-agent.runtimeconfig.json",
-				"agent/TestCentric.Agent.Core.dll",
-				"agent/testcentric.engine.api.dll", "agent/testcentric.extensibility.api.dll",
-				"agent/testcentric.extensibility.dll", "agent/testcentric.engine.metadata.dll",
-				"agent/TestCentric.InternalTrace.dll",
-				"agent/Microsoft.Extensions.DependencyModel.dll") ),
+			new DirectoryContent("tools/agent").WithFiles(AGENT_FILES) ),
 	testRunner: new AgentRunner(BuildSettings.NuGetTestDirectory + "TestCentric.Extension.NetCore31PluggableAgent." + BuildSettings.PackageVersion + "/tools/agent/netcore31-agent.dll"),
 	tests: PackageTests) );
 	
@@ -85,14 +87,7 @@ BuildSettings.Packages.Add(new ChocolateyPackage(
 				"../../LICENSE.txt", "../../README.md", "../../VERIFICATION.txt",
 				"netcore31-agent-launcher.dll", "netcore31-agent-launcher.pdb",
 				"testcentric.extensibility.api.dll", "testcentric.engine.api.dll" ),
-			new DirectoryContent("tools/agent").WithFiles(
-				"agent/netcore31-agent.dll", "agent/netcore31-agent.pdb", "agent/netcore31-agent.dll.config",
-				"agent/netcore31-agent.deps.json", $"agent/netcore31-agent.runtimeconfig.json",
-				"agent/TestCentric.Agent.Core.dll",
-				"agent/testcentric.engine.api.dll", "agent/testcentric.extensibility.api.dll",
-				"agent/testcentric.extensibility.dll", "agent/testcentric.engine.metadata.dll",
-				"agent/TestCentric.InternalTrace.dll",
-				"agent/Microsoft.Extensions.DependencyModel.dll") ),
+			new DirectoryContent("tools/agent").WithFiles(AGENT_FILES) ),
 	testRunner: new AgentRunner(BuildSettings.ChocolateyTestDirectory + "testcentric-extension-netcore31-pluggable-agent." + BuildSettings.PackageVersion + "/tools/agent/netcore31-agent.dll"),
 	tests: PackageTests) );
 
@@ -115,4 +110,4 @@ Task("Default")
 // EXECUTION
 //////////////////////////////////////////////////////////////////////
 
-RunTarget(target);
+RunTarget(CommandLineOptions.Target.Value);
