@@ -1,5 +1,5 @@
 // Load the recipe
-#load nuget:?package=TestCentric.Cake.Recipe&version=1.1.2
+#load nuget:?package=TestCentric.Cake.Recipe&version=1.2.0
 // Comment out above line and uncomment below for local tests of recipe changes
 //#load ../TestCentric.Cake.Recipe/recipe/*.cake
 
@@ -77,7 +77,7 @@ BuildSettings.Packages.Add(new NuGetPackage(
 	
 BuildSettings.Packages.Add(new ChocolateyPackage(
 	"testcentric-extension-netcore31-pluggable-agent",
-	title: ".NET 50 Pluggable Agent",
+	title: "TestCentric Extension - .NET Core 3.1 Pluggable Agent",
 	description: "TestCentric engine extension for running tests under .NET Core 3.1",
 	tags: new [] { "testcentric", "pluggable", "agent", "netcoreapp3.1" },
 	packageContent: new PackageContent()
